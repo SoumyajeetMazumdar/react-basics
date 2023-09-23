@@ -1,8 +1,13 @@
-# React + Vite
+# React Router Project overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Replaced the standard component injection with react routing using <Outlet> and <Layout>
 
-Currently, two official plugins are available:
+- used the top level element <Layout> to nest sub-elements and assign realtive paths
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- creation of the <RouterProvider router={router}> wrapper and then using the 'router' variable to assign paths and subpaths of elements
+
+- methods to creating router using [createBrowserRouter] and nesting using brackets or [createRoutesFromElements]
+
+- dynamic values from the URL, {useParams} hook
+
+- api call optimization: using loader instead of useEffect
