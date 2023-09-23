@@ -1,18 +1,21 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
+
+import { useLoaderData } from "react-router-dom";
 
 function Github() {
-  const [data, setData] = useState({});
+  // const [data, setData] = useState({});
 
   // for api call when component mounts into virtual-DOM
-  useEffect(() => {
-    fetch("https://api.github.com/users/soumyajeetmazumdar")
-      .then((res) => res.json())
-      .then((resjson) => {
-        setData(resjson);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch("https://api.github.com/users/soumyajeetmazumdar")
+  //     .then((res) => res.json())
+  //     .then((resjson) => {
+  //       console.log(resjson);
+  //       setData(resjson);
+  //     });
+  // }, []);
 
-  console.log(data);
+  const data = useLoaderData();
 
   return (
     <div className="text-center m-4 bg-orange-700 text-white text-3xl p-4">
@@ -30,3 +33,11 @@ function Github() {
 }
 
 export default Github;
+
+export const GithubInfoLoader = async () => {
+  const response = await fetch(
+    "https://api.github.com/users/soumyajeetmazumdar"
+  );
+
+  return response.json();
+};
