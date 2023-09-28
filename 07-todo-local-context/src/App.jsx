@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TodoProvider } from "./contexts";
 
 function App() {
@@ -44,6 +44,21 @@ function App() {
       )
     );
   };
+
+  // to import data from localstorage when "App" is mounted
+  useEffect(() => {
+    const todos = JSON.parse(localStorage.getItem("todos"));
+
+    if (todos && todos.length > 0) {
+      //checking if local "todos" contains anything
+      setTodos(todos);
+    }
+  }, []);
+
+  // to set the local storage whenever there is a change in todos
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   return (
     <TodoProvider
