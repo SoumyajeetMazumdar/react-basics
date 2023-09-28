@@ -2,18 +2,7 @@ import { createContext, useContext } from "react";
 
 // todo context, with default values as given below
 export const TodoContext = createContext({
-  todos: [
-    {
-      id: 1,
-      todo: "Todo msg 1",
-      completed: false,
-    },
-    {
-      id: 2,
-      todo: "Todo msg 2",
-      completed: false,
-    },
-  ],
+  todos: [{}],
   addTodo: (todo) => {
     /* defined in different file */
   },
