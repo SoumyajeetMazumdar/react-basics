@@ -24,10 +24,12 @@ export const todoSlice = createSlice({
       );
     },
     updateTodo: (state, action) => {
-      state.todos.map((todoelem) => {
+      // console.log(state, action);
+      state.todos = state.todos.map((todoelem) => {
         if (todoelem.id === action.payload) {
           return { ...todoelem, text: "UPDATED TEXT" };
         }
+        return todoelem;
       });
     },
   },
